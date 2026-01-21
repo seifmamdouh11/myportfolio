@@ -25,8 +25,11 @@ const navItems = [
   {label:'Projects',id:'projects'},
   { label: 'Contact', id: 'contact' },
 ];
-const socialIcons = [<FaLinkedin />, <FaFacebook />, <FaInstagram />];
-
+const socialList = [
+    { href: 'https://www.facebook.com/SeifMamd0uh', icon: <FaFacebook /> },
+    { href: 'https://www.instagram.com/seifmamdouh10/', icon: <FaInstagram /> },
+    { href: 'https://www.linkedin.com/in/seifmamdouh/', icon: <FaLinkedin /> },
+]
 
 
 
@@ -59,11 +62,18 @@ export default function Navbar(props: any) {
             ))}
         </List>
         <Box sx={{ py: 2, display: 'flex', justifyContent: 'center', gap: '10px' }}>
-            {socialIcons.map((icon, index) => (
-                <Button key={index} sx={{ color: '#fff' }}>
-                    {icon}
-                </Button>
-            ))}
+            {socialList.map((item, index) => (
+                                <Button
+                                    key={index}
+                                    sx={{ color: '#fff', fontSize: '1rem' }}
+                                    component="a"
+                                    href={item.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    {item.icon}
+                                </Button>
+                            ))}
         </Box>
     </Box>
 );
@@ -71,7 +81,7 @@ export default function Navbar(props: any) {
     const container = window !== undefined ? () => window().document.body : undefined;
 
     return (
-        <Box sx={{ display: 'flex' }} id="back-to-top-anchor" >
+        <Box sx={{ display: 'flex' }} id="back-to-top-anchor" data-aos="fade-down">
             <CssBaseline />
             <HideOnScroll {...props}>
                 <CustomAppBar component="nav" sx={{ backgroundColor: 'transparent', boxShadow: 'none', p: '10px' }}>
@@ -104,9 +114,16 @@ export default function Navbar(props: any) {
                             ))}
                         </Box>
                         <Box sx={{display:'flex' ,flexDirection:'row',justifyContent:"flex-end",width:{xs:'100%',sm:'auto'}}}>
-                            {socialIcons.map((icon, index) => (
-                                <Button key={index} sx={{ color: '#fff', fontSize: '1rem' }}>
-                                    {icon}
+                            {socialList.map((item, index) => (
+                                <Button
+                                    key={index}
+                                    sx={{ color: '#fff', fontSize: '1rem' }}
+                                    component="a"
+                                    href={item.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    {item.icon}
                                 </Button>
                             ))}
                         </Box>

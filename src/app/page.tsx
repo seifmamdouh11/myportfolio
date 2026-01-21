@@ -25,51 +25,51 @@ export default function Home(props: Props) {
       once: true,    
     });
   }, []);
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setIsLoaded(false);
-  //   }, 5000);
-  // }, []);
-  // useEffect(() => {
-  //   const duration = 4000; 
-  //   const start = Date.now();
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoaded(false);
+    }, 5000);
+  }, []);
+  useEffect(() => {
+    const duration = 4000; 
+    const start = Date.now();
 
-  //   const timer = setInterval(() => {
-  //     const elapsed = Date.now() - start;
-  //     const percentage = Math.min((elapsed / duration) * 100, 100);
-  //     setProgress(percentage);
+    const timer = setInterval(() => {
+      const elapsed = Date.now() - start;
+      const percentage = Math.min((elapsed / duration) * 100, 100);
+      setProgress(percentage);
 
-  //     if (percentage >= 100) { 
-  //       clearInterval(timer);
-  //       setProgress(100); 
-  //       setIsLoaded(false);
-  //     }
-  //   }, 50);
+      if (percentage >= 100) { 
+        clearInterval(timer);
+        setProgress(100); 
+        setIsLoaded(false);
+      }
+    }, 50);
 
-  //   return () => clearInterval(timer);
-  // }, []);
-  // if (isLoaded) {
-  //   return (
-  //     <>
-  //       <Stack bgcolor={'#151312'} minHeight={'100vh'} top={0} left={0} zIndex={100} display={'flex'} justifyContent={'center'} alignItems={'center'} flexDirection={'column'} gap={2} id="home">
-  //         <CssBaseline />
-  //         <Typography textTransform={'uppercase'} color="white" fontSize={50} fontWeight={'900'} textAlign={'center'}>Welcome to my portfolio</Typography>
-  //         <LinearProgress
-  //           variant="determinate"
-  //           value={progress}
-  //           sx={{
-  //             width: '300px',
-  //             height: '10px',
-  //             borderRadius: '5px',
-  //             '& .MuiLinearProgress-bar': {
-  //               backgroundColor: '#fff',
-  //             },
-  //           }}
-  //         />
-  //       </Stack>
-  //     </>
-  //   )
-  // }
+    return () => clearInterval(timer);
+  }, []);
+  if (isLoaded) {
+    return (
+      <>
+        <Stack bgcolor={'#151312'} minHeight={'100vh'} top={0} left={0} zIndex={100} display={'flex'} justifyContent={'center'} alignItems={'center'} flexDirection={'column'} gap={2} id="home">
+          <CssBaseline />
+          <Typography textTransform={'uppercase'} color="white" fontSize={50} fontWeight={'900'} textAlign={'center'}>Welcome to my portfolio</Typography>
+          <LinearProgress
+            variant="determinate"
+            value={progress}
+            sx={{
+              width: '300px',
+              height: '10px',
+              borderRadius: '5px',
+              '& .MuiLinearProgress-bar': {
+                backgroundColor: '#fff',
+              },
+            }}
+          />
+        </Stack>
+      </>
+    )
+  }
   return (
     <>
       <ThemeProvider theme={theme}>
