@@ -75,7 +75,7 @@ export default function Home(props: Props) {
       <ThemeProvider theme={theme}>
         <Navbar />
         <Stack flexDirection="column" justifyContent="center" alignItems="" bgcolor={'#151312'} >
-          <Container maxWidth="lg" sx={{ mt: 10, mb: 0 }}>
+          <Container  sx={{ mt: 10, mb: 0 }}>
             <Hero />
             <About />
             <Skills />
